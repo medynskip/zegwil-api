@@ -5,6 +5,10 @@ const ConfigSchema = mongoose.Schema({
     type: String,
     required: false,
   },
+  category: {
+    type: String,
+    required: false,
+  },
   fieldValues: Array,
 });
 
