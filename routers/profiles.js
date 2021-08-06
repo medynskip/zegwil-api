@@ -12,6 +12,21 @@ router.get("/get", (req, res) => {
   });
 });
 
+router.get("/get/:filter", (req, res) => {
+  var filter = req.params.filter;
+  Profile.find(
+    {
+      category: filter,
+    },
+    (err, data) => {
+      if (err) return console.log(err);
+      res.json(data);
+    }
+  ).sort({
+    added: -1,
+  });
+});
+
 router.post("/add", (req, res) => {
   const newProfile = new Profile({
     ...req.body,
